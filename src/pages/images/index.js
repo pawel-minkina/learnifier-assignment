@@ -69,7 +69,8 @@ function ImagesPage() {
                                             className='mb-4'
                                             sm={12}
                                             md={6}
-                                            lg={4}
+                                            lg={4} // this causes an empty slot at last position (3 items per row) which looks quite bad but better than lg={6}
+                                            xl={3}
                                         >
                                             <ImageDetails image={image}/>
                                         </Col>
