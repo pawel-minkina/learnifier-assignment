@@ -1,11 +1,12 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Container, Row} from 'reactstrap';
+import {Container, Row, Button} from 'reactstrap';
 import Col from 'reactstrap/es/Col';
 import {v4 as uuid} from 'uuid';
 import ImagePreview from '../../components/image-preview';
 import {ImageAPI} from '../../consts';
 import {Styles} from '../../utils';
+import {NavLink} from 'react-router-dom';
 
 function HomePage(props) {
     const {count} = props;
@@ -39,6 +40,17 @@ function HomePage(props) {
                     </Row>
                 );
             })}
+
+            <Container
+                className='mb-5'
+                fluid={true}
+            >
+                <NavLink to="images">
+                    <Button color="primary">
+                        Show more
+                    </Button>
+                </NavLink>
+            </Container>
         </Container>
     );
 }
