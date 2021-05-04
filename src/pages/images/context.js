@@ -28,7 +28,8 @@ export function ImagesListProvider(props) {
         setError(null);
 
         const cancelCallback = axios.CancelToken.source();
-        axios.get(ImageAPI.LIST_IMAGES(page), {cancelToken: cancelCallback.token})
+        // indexing starts at 1
+        axios.get(ImageAPI.LIST_IMAGES(page + 1), {cancelToken: cancelCallback.token})
             .then((response) => {
                 const hasPrevious = response.headers?.link?.indexOf('prev') !== -1;
                 const hasNext = response.headers?.link?.indexOf('next') !== -1;
