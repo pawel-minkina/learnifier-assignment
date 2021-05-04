@@ -4,8 +4,8 @@ import axios from 'axios';
 import {Fade} from 'reactstrap';
 import LoadingContainer from '../loading-container';
 import {Styles} from '../../utils';
-import './style.css';
 import LoadingAlert from '../loading-alert';
+import './style.css';
 
 function ImagePreview(props) {
     const {className, source, details} = props;
@@ -35,7 +35,9 @@ function ImagePreview(props) {
                 setLoading(false);
             });
 
-        return () => cancelCallback.cancel('cancelled');
+        return () => {
+            cancelCallback.cancel('cancelled');
+        };
     }, [source]);
 
     React.useEffect(load, [load]);

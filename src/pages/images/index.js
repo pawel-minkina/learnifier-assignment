@@ -1,11 +1,10 @@
 import React from 'react';
-import {Col, Container, Input, Label, Row} from 'reactstrap';
+import {Button, Col, Container, Input, Label, Row} from 'reactstrap';
 import {ImagesListConsumer, ImagesListProvider} from './context';
 import LoadingContainer from '../../components/loading-container';
 import ImageDetails from '../../components/image-details';
 import LoadingAlert from '../../components/loading-alert';
 import './styles.css';
-import Button from 'reactstrap/es/Button';
 
 const LIST_VALUE_TO_DATA_SOURCE_BY_SORT = {
     'ID': (value) => value.getData(),

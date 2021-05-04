@@ -3,8 +3,8 @@ import PropTypes from 'prop-types';
 import {Card, CardBody, CardText} from 'reactstrap';
 import ImagePreview from '../image-preview';
 import {Styles} from '../../utils';
-import './style.css';
 import {ImageAPI} from '../../consts';
+import './style.css';
 
 function ImageDetails(props) {
     const {className, image} = props;
