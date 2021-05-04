@@ -1,15 +1,15 @@
 {
   "files": {
     "main.css": "/learnifier-assignment/static/css/main.9cdd9fb7.chunk.css",
-    "main.js": "/learnifier-assignment/static/js/main.520d0535.chunk.js",
-    "main.js.map": "/learnifier-assignment/static/js/main.520d0535.chunk.js.map",
+    "main.js": "/learnifier-assignment/static/js/main.af839ebc.chunk.js",
+    "main.js.map": "/learnifier-assignment/static/js/main.af839ebc.chunk.js.map",
     "runtime~main.js": "/learnifier-assignment/static/js/runtime~main.7a543556.js",
     "runtime~main.js.map": "/learnifier-assignment/static/js/runtime~main.7a543556.js.map",
     "static/css/2.7ca58fb4.chunk.css": "/learnifier-assignment/static/css/2.7ca58fb4.chunk.css",
     "static/js/2.4759ed8c.chunk.js": "/learnifier-assignment/static/js/2.4759ed8c.chunk.js",
     "static/js/2.4759ed8c.chunk.js.map": "/learnifier-assignment/static/js/2.4759ed8c.chunk.js.map",
     "index.html": "/learnifier-assignment/index.html",
-    "precache-manifest.0e31a0f42adf7751125e64a50459f1c8.js": "/learnifier-assignment/precache-manifest.0e31a0f42adf7751125e64a50459f1c8.js",
+    "precache-manifest.dac7f1e3ea0b116a1712b00cba07eca3.js": "/learnifier-assignment/precache-manifest.dac7f1e3ea0b116a1712b00cba07eca3.js",
     "service-worker.js": "/learnifier-assignment/service-worker.js",
     "static/css/2.7ca58fb4.chunk.css.map": "/learnifier-assignment/static/css/2.7ca58fb4.chunk.css.map",
     "static/css/main.9cdd9fb7.chunk.css.map": "/learnifier-assignment/static/css/main.9cdd9fb7.chunk.css.map"
