@@ -5,9 +5,10 @@ import LoadingContainer from '../../components/loading-container';
 import ImageDetails from '../../components/image-details';
 import LoadingAlert from '../../components/loading-alert';
 import './styles.css';
+import Button from 'reactstrap/es/Button';
 
 const LIST_VALUE_TO_DATA_SOURCE_BY_SORT = {
-    'ID': (value) => value.data,
+    'ID': (value) => value.getData(),
     'Author': (value) => value.getSortedData('author'),
 };
 
@@ -75,6 +76,31 @@ function ImagesPage() {
                                     ))}
                                 </Row>
 
+                                <Row className='mt-5 mb-5'>
+                                    <Col>
+                                        <Button
+                                            color='primary'
+                                            disabled={!value.hasPreviousPage()}
+                                            onClick={() => setCurrentPage((oldCurrentPage) => Math.max(0, oldCurrentPage - 1))}
+                                        >
+                                            Previous page
+                                        </Button>
+                                    </Col>
+
+                                    <Col className='align-items-center justify-content-center d-flex'>
+                                        <span>{currentPage + 1}</span>
+                                    </Col>
+
+                                    <Col>
+                                        <Button
+                                            color='primary'
+                                            disabled={!value.hasNextPage()}
+                                            onClick={() => setCurrentPage((oldCurrentPage) => oldCurrentPage + 1)}
+                                        >
+                                            Next page
+                                        </Button>
+                                    </Col>
+                                </Row>
                             </Container>
                         );
                     }}

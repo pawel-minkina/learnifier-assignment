@@ -19,18 +19,24 @@ export function ImagesListProvider(props) {
     const {page, children} = props;
 
     const [loading, setLoading] = React.useState(false);
-    const [list, setList] = React.useState([]);
+    const [list, setList] = React.useState(null);
     const [error, setError] = React.useState(null);
 
     const load = React.useCallback(() => {
         setLoading(true);
-        setList([]);
+        setList(null);
         setError(null);
 
         const cancelCallback = axios.CancelToken.source();
         axios.get(ImageAPI.LIST_IMAGES(page), {cancelToken: cancelCallback.token})
             .then((response) => {
-                setList(response.data);
+                const hasPrevious = response.headers?.link?.indexOf('prev') !== -1;
+                const hasNext = response.headers?.link?.indexOf('next') !== -1;
+                setList({
+                    hasPrevious,
+                    hasNext,
+                    data: response.data,
+                });
             })
             .catch((error) => {
                 setError(error?.message || error);
@@ -50,9 +56,12 @@ export function ImagesListProvider(props) {
         <ImagesListContext.Provider value={Object.freeze({
             loading,
             error,
-            data: list,
             reload: load,
-            getSortedData: (field) => Arrays.sortByField(list, field, FIELD_COMPARATORS[field]),
+            hasPreviousPage: () => list?.hasPrevious,
+            hasNextPage: () => list?.hasNext,
+            getData: () => list?.data || [],
+            getSortedData: (field) => Arrays.sortByField(
+                list?.data || [], field, FIELD_COMPARATORS[field]),
         })}>
             {children}
         </ImagesListContext.Provider>
