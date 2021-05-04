@@ -49,7 +49,11 @@ function ImagePreview(props) {
     }, [image]);
 
     return (
-        <div className={Styles.combineStyles('ImagePreview', className)}>
+        <div
+            className={Styles.combineStyles('ImagePreview', className)}
+            onMouseEnter={() => setTooltipVisible(true)}
+            onMouseLeave={() => setTooltipVisible(false)}
+        >
             <LoadingContainer
                 className="ImagePreview-LoadingContainer"
                 loading={loading}
@@ -70,8 +74,6 @@ function ImagePreview(props) {
                             className="ImagePreview-Image"
                             alt={source}
                             src={image}
-                            onMouseEnter={() => setTooltipVisible(true)}
-                            onMouseLeave={() => setTooltipVisible(false)}
                         />
                     );
 
@@ -94,10 +96,12 @@ function ImagePreview(props) {
 
             {details && (
                 <Fade
-                    className='ImagePreview-Details'
+                    className="ImagePreview-Details p-2 m-1"
+                    mountOnEnter
+                    unmountOnExit
                     in={tooltipVisible}
                 >
-                    <div className="p-2 m-1 text-light">
+                    <div className="text-light">
                         {details.author && (
                             <p className='mb-0'>
                                 {details.id && <span>#{details.id}. </span>}
