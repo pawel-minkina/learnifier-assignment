@@ -65,7 +65,7 @@ function ImagePreview(props) {
                         );
                     }
 
-                    return image && (
+                    const imageComponent = (
                         <img
                             className="ImagePreview-Image"
                             alt={source}
@@ -74,6 +74,21 @@ function ImagePreview(props) {
                             onMouseLeave={() => setTooltipVisible(false)}
                         />
                     );
+
+                    if (details?.url || details?.download_url) {
+                        return (
+                            <a
+                                className="ImagePreview-Image"
+                                href={details.url || details.download_url}
+                                target="_blank"
+                                rel="noopener noreferrer"
+                            >
+                                {imageComponent}
+                            </a>
+                        );
+                    }
+
+                    return imageComponent;
                 }}
             </LoadingContainer>
 
