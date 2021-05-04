@@ -15,7 +15,7 @@ const LIST_VALUE_TO_DATA_SOURCE_BY_SORT = {
 function ImagesPage() {
     const [currentPage, setCurrentPage] = React.useState(0);
 
-    const [sort, setSort] = React.useState('ID');
+    const [sort, setSort] = React.useState('Author');
 
     return (
         <ImagesListProvider page={currentPage}>
