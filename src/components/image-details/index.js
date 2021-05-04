@@ -10,10 +10,7 @@ function ImageDetails(props) {
     const {className, image} = props;
 
     return (
-        <Card
-            className={Styles.combineStyles('ImageDetails', className)}
-            href={image.url} target="blank"
-        >
+        <Card className={Styles.combineStyles('ImageDetails', className)}>
             <ImagePreview
                 source={ImageAPI.GET_IMAGE(image.id)}
                 details={image}

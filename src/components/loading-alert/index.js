@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Alert} from 'reactstrap';
+import {Alert, Button} from 'reactstrap';
 
 function LoadingAlert(props) {
     const {message, onReload, error} = props;
@@ -9,7 +9,11 @@ function LoadingAlert(props) {
         <Alert color="danger">
             <p>{message}</p>
 
-            {onReload && (<p>Click <a href="#" className="alert-link" onClick={onReload}>here</a> to try again.</p>)}
+            {onReload && (
+                <p>
+                    Click <Button color='link' className="alert-link p-0" onClick={onReload}>here</Button> to try again.
+                </p>
+            )}
 
             {error && (
                 <React.Fragment>

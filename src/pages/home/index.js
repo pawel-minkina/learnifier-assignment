@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Container, Row, Button} from 'reactstrap';
+import {Button, Container, Row} from 'reactstrap';
 import Col from 'reactstrap/es/Col';
 import {v4 as uuid} from 'uuid';
 import ImagePreview from '../../components/image-preview';
