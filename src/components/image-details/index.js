@@ -4,6 +4,7 @@ import {Card, CardBody, CardText} from 'reactstrap';
 import ImagePreview from '../image-preview';
 import {Styles} from '../../utils';
 import './style.css';
+import {ImageAPI} from '../../consts';
 
 function ImageDetails(props) {
     const {className, image} = props;
@@ -13,7 +14,7 @@ function ImageDetails(props) {
             className={Styles.combineStyles('ImageDetails', className)}
             href={image.url} target="blank"
         >
-            <ImagePreview source={image.download_url}/>
+            <ImagePreview source={ImageAPI.GET_IMAGE(image.id)}/>
 
             <CardBody>
                 <CardText className={Styles.combineStyles('ImageDetails-Author', 'text-center')}>
