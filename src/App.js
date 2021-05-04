@@ -9,12 +9,12 @@ import './App.css';
 function App() {
     return (
         <div className="App">
-            <Container>
-                <Navbar color="light">
-                    <NavbarBrand href="/">Images</NavbarBrand>
-                    <NavLink href="/images">See all images</NavLink>
-                </Navbar>
+            <Navbar color="light">
+                <NavbarBrand href="/">Images</NavbarBrand>
+                <NavLink href="/images">See all images</NavLink>
+            </Navbar>
 
+            <Container>
                 <BrowserRouter>
                     <Switch>
                         <Route exact path="/" component={HomePage}/>
