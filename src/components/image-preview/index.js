@@ -2,9 +2,9 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import LoadingContainer from '../loading-container';
-import {Alert} from 'reactstrap';
 import {Styles} from '../../utils';
 import './style.css';
+import LoadingAlert from '../loading-alert';
 
 function ImagePreview(props) {
     const {className, source} = props;
@@ -54,12 +54,11 @@ function ImagePreview(props) {
                 {() => {
                     if (error) {
                         return (
-                            <Alert color="danger">
-                                <p>Could not load the image :(</p>
-                                <p>Click <a href="#" className="alert-link" onClick={load}>here</a> to try again.</p>
-                                <hr/>
-                                <p className="mb-0">Error details: {error}</p>
-                            </Alert>
+                            <LoadingAlert
+                                message='Could not load the image :('
+                                onReload={load}
+                                error={error}
+                            />
                         );
                     }
 
