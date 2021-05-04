@@ -1,17 +1,20 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
+import {Fade} from 'reactstrap';
 import LoadingContainer from '../loading-container';
 import {Styles} from '../../utils';
 import './style.css';
 import LoadingAlert from '../loading-alert';
 
 function ImagePreview(props) {
-    const {className, source} = props;
+    const {className, source, details} = props;
 
     const [loading, setLoading] = React.useState(false);
     const [image, setImage] = React.useState('');
     const [error, setError] = React.useState('');
+
+    const [tooltipVisible, setTooltipVisible] = React.useState(false);
 
     const load = React.useCallback(() => {
         setImage(null);
@@ -67,10 +70,32 @@ function ImagePreview(props) {
                             className="ImagePreview-Image"
                             alt={source}
                             src={image}
+                            onMouseEnter={() => setTooltipVisible(true)}
+                            onMouseLeave={() => setTooltipVisible(false)}
                         />
                     );
                 }}
             </LoadingContainer>
+
+            {details && (
+                <Fade
+                    className='ImagePreview-Details'
+                    in={tooltipVisible}
+                >
+                    <div className="p-2 m-1 text-light">
+                        {details.author && (
+                            <p className='mb-0'>
+                                {details.id && <span>#{details.id}. </span>}
+                                {details.author}
+                            </p>
+                        )}
+
+                        {details.width && details.height && (
+                            <p className='mb-0'>{details.width} x {details.height}</p>
+                        )}
+                    </div>
+                </Fade>
+            )}
         </div>
     );
 }
@@ -78,6 +103,14 @@ function ImagePreview(props) {
 ImagePreview.propTypes = {
     className: PropTypes.string,
     source: PropTypes.string.isRequired,
+    details: PropTypes.shape({
+        id: PropTypes.string,
+        author: PropTypes.string,
+        width: PropTypes.number,
+        height: PropTypes.number,
+        url: PropTypes.string,
+        download_url: PropTypes.string,
+    }),
 };
 
 export default ImagePreview;

@@ -14,7 +14,10 @@ function ImageDetails(props) {
             className={Styles.combineStyles('ImageDetails', className)}
             href={image.url} target="blank"
         >
-            <ImagePreview source={ImageAPI.GET_IMAGE(image.id)}/>
+            <ImagePreview
+                source={ImageAPI.GET_IMAGE(image.id)}
+                details={image}
+            />
 
             <CardBody>
                 <CardText className={Styles.combineStyles('ImageDetails-Author', 'text-center')}>
