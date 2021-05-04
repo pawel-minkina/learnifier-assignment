@@ -2,8 +2,18 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import axios from 'axios';
 import {ImageAPI} from '../../consts';
+import {Arrays, Sorts} from '../../utils';
 
 const ImagesListContext = React.createContext(null);
+
+const FIELD_COMPARATORS = {
+    id: Sorts.stringCompare,
+    author: Sorts.stringCompare,
+    width: Sorts.numberCompare, // just for support
+    height: Sorts.numberCompare, // just for support
+    url: Sorts.stringCompare, // just for support
+    download_url: Sorts.stringCompare, // just for support
+};
 
 export function ImagesListProvider(props) {
     const {page, children} = props;
@@ -42,6 +52,7 @@ export function ImagesListProvider(props) {
             error,
             data: list,
             reload: load,
+            getSortedData: (field) => Arrays.sortByField(list, field, FIELD_COMPARATORS[field]),
         })}>
             {children}
         </ImagesListContext.Provider>
