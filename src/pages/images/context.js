@@ -60,9 +60,9 @@ export function ImagesListProvider(props) {
             reload: load,
             hasPreviousPage: () => list?.hasPrevious,
             hasNextPage: () => list?.hasNext,
-            getData: () => list?.data || [],
+            getData: () => Arrays.copyOrEmpty(list?.data),
             getSortedData: (field) => Arrays.sortByField(
-                list?.data || [], field, FIELD_COMPARATORS[field]),
+                list?.data, field, FIELD_COMPARATORS[field]),
         })}>
             {children}
         </ImagesListContext.Provider>

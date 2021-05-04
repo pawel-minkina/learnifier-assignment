@@ -24,7 +24,6 @@ function ImagesPage() {
                     className='pt-5'
                     loading={value.loading}
                 >
-
                     {() => {
                         if (value.error) {
                             return (

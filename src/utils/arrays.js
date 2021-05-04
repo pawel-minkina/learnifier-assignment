@@ -1,10 +1,16 @@
+export function copyOrEmpty(array = []) {
+    return [...array];
+}
+
 export function sortByField(array, field, comparator) {
-    if (!array || !Array.isArray(array) || !field || !comparator) {
-        return array; // or throw?
+    const copyArray = copyOrEmpty(array);
+    if (!field || !comparator) {
+        return copyArray; // or throw?
     }
-    return array.sort((entryA, entryB) => comparator(entryA[field], entryB[field]));
+    return copyArray.sort((entryA, entryB) => comparator(entryA[field], entryB[field]));
 }
 
 export default Object.freeze({
+    copyOrEmpty,
     sortByField,
 });
